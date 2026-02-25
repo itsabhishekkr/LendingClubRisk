@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env/
+
+# Data
+data/*.csv
+data/*.parquet
+data/*.json
+
+# Spark
+*.log
+spark-warehouse/
+metastore_db/
+derby.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
