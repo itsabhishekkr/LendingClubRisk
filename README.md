@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Lending Club Risk Analysis & Data Engineering Pipeline
 
 ## Project Overview
@@ -33,3 +34,88 @@ The pipeline follows a **modular ETL (Extract, Transform, Load)** pattern:
 - Run all tests:  
   ```bash
   python -m pytest -v
+=======
+# LendingClubRisk Data Engineering
+
+A modular, enterprise-grade data engineering pipeline for processing LendingClub risk data using PySpark.
+
+## 🚀 Overview
+
+This project has been refactored from a monolithic notebook structure into a modular architecture following production-grade software engineering principles. It features decentralized configuration, structured logging, automated testing, and isolated dependency management.
+
+## 📁 Project Structure
+
+```text
+.
+├── config/             # Configuration management (YAML)
+│   └── config.yaml     # Spark and data path settings
+├── data/               # Local data storage
+├── lib/                # Modular logic
+│   ├── data_loader.py  # Data ingestion utilities
+│   ├── logger.py       # Enterprise logging framework
+│   ├── processing.py   # Data transformation logic
+│   └── spark_session.py# SparkSession management
+├── tests/              # Automated unit tests (Pytest)
+├── Pipfile             # Dependency management (Pipenv)
+├── verify_setup.py     # End-to-end integration verification
+└── README.md           # Project documentation
+```
+
+## 🛠️ Setup
+
+### Prerequisites
+- Python 3.12+
+- Apache Spark (with PySpark)
+- Pipenv (`pip install pipenv`)
+
+### Installation
+Initialize the isolated environment and install dependencies:
+```bash
+pipenv install
+```
+
+## 💻 Usage
+
+### Initializing Spark & Loading Data
+```python
+from lib.spark_session import get_spark_session
+from lib.data_loader import load_config, load_raw_data
+
+# Get Spark session initialized from config
+spark = get_spark_session()
+
+# Load project configuration
+config = load_config()
+
+# Load data with automatic fallback to local paths
+df = load_raw_data(spark, config)
+```
+
+### Logging
+The project utilizes a structured logging framework (Log4j style). Log messages follow the format: `TIMESTAMP - LEVEL - NAME - MESSAGE`.
+
+### Running Verification
+Verify the entire setup (Spark initialization + Data Loading + Transformations):
+```bash
+pipenv run python verify_setup.py
+```
+
+## 🧪 Testing
+
+The project includes a comprehensive Pytest suite. Spark sessions are managed via global fixtures for performance.
+
+```bash
+# Run all tests
+pipenv run python -m pytest
+
+# Run only Spark-integrated tests
+pipenv run python -m pytest -m spark
+```
+
+## 🌟 Key Features
+
+- **Decentralized Configuration**: All environment specifics are managed in `config/config.yaml`.
+- **Enterprise Logging**: INFO, WARN, and ERROR levels for production monitoring.
+- **Isolated Environments**: Pipenv ensures consistent dependency management across Dev/Stage/Prod.
+- **Modular Data Logic**: Pure Python library for core transformations, making them testable and reusable.
+>>>>>>> 0aa3956 (add code are added)

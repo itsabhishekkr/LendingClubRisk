@@ -1,0 +1,11 @@
+spark:
+  app_name: "LendingClubRisk"
+  ui_port: "0"
+  warehouse_dir: "/user/{username}/warehouse"
+  shuffle_fetch_protocol: "true"
+  master: "yarn"
+  enable_hive: true
+
+data:
+  raw_path: "/datasets/accepted_2007_to_2018Q4.csv"
+  local_sample_path: "data/accepted_2007_to_2018Q4.csv"
